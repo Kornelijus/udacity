@@ -10,3 +10,6 @@ If you don't have it, you can get it from https://www.python.org/
  - Open your terminal / cmd / PowerShell
  - Navigate to the project's folder
  - run `python entertainment_center.py`
+ 
+## Sources
+- `fresh_tomatoes.py` provided by Udacity themselves.
