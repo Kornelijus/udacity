@@ -72,7 +72,7 @@ def worst_days(percent=1):
             from log
             group by day)
         requests
-        where round(errors * 100.0 / requests, 1) > 1
+        where round(errors * 100.0 / requests, 1) > {}
         and errors.day = requests.day;
     """.format(str(percent)))
     results = ["\nOn which days did more than 1% of requests lead to errors?"]
