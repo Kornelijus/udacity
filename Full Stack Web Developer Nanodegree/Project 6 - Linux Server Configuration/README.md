@@ -32,7 +32,9 @@ Make sure the Lightsail firewall isn't blocking TCP port 2200.
 sudo nano /etc/ssh/sshd_config
 ```
 ```
+...
 Port 2200
+...
 ```
 ```
 sudo service ssh restart
@@ -92,7 +94,7 @@ cat key_path.pub
 ssh-rsa AAAAB7Nza...
 ```
 
-Log in into the server as `grader` and make sure you're in `/home/grader/`
+Log in into the server as `grader` and make sure you're in `/home/grader/`.
 
 ```
 mkdir .ssh
@@ -104,6 +106,17 @@ ssh-rsa AAAAB7Nza...
 ```
 chmod 700 .ssh
 sudo chmod 644 .ssh/authorized_keys
+```
+
+Make sure `sshd_config` forces key based authentication.
+
+```
+sudo cat /etc/ssh/sshd_config
+```
+```
+...
+PasswordAuthentication no
+...
 ```
 
 IV. A list of any third-party resources you made use of to complete this project.
