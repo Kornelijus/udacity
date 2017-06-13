@@ -1,0 +1,19 @@
+{% extends "nav.html" %}
+{% block content %}
+
+<h3>{{ item.name }} ({{ cat.name }})
+{% if user_id == item.id %}
+<a class="btn btn-primary" href="/catalog/{{ cat.id }}/{{ item.id }}/edit/">Edit</a>
+<a class="btn btn-primary" href="/catalog/{{ cat.id }}/{{ item.id }}/delete/">Delete</a>
+{% endif %}
+</h3>
+<hr>
+<p><b>Author:</b> {{ author }}<br>
+{% if item.description != None and item.description != "" %}
+<b>Description:</b><br>
+{{ item.description }}
+{% else %}
+This item doesn't have a description.
+{% endif %}
+</p>
+{% endblock %}

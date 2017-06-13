@@ -1,0 +1,31 @@
+{% extends "nav.html" %}
+{% block content %}
+
+{% if new == True %}
+<h3>New item ({{ cat.name }})</h3>
+{% else %}
+<h3>Edit item ({{ item.name }})</h3>
+{% endif %}
+<form method="post">
+<div class="form-group">
+<label for="name">Name</label>
+<input class="form-control" type="text" name="name" value="{% if new == False %}{{ item.name }}{% endif %}">
+</div>
+<div class="form-group">
+<label for="desc">Description</label>
+<textarea class="form-control" type="text" name="desc">
+{% if new == False %}
+{{ item.description }}
+{% endif %}
+</textarea>
+</div>
+<button type="submit" class="btn btn-primary">
+{% if new == True %}
+Create
+{% else %}
+Save
+{% endif %}
+</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+body {
+    background: #bababa;
+}
+
+.container {
+	margin-top: 20px;
+}
+
+.div-main {
+	background: white;
+	margin: 0px;
+}
+
+.nav-link {
+    display: flex;
+    color: white !important;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 45px;
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+textarea {
+    min-height: 125px; 
+}

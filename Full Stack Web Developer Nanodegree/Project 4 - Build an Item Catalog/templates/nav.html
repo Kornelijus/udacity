@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+  <link rel=stylesheet href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Catalog App</title>
+</head>
+<body>
+  <nav class="navbar navbar-toggleable-xl navbar-inverse bg-inverse">
+    <a class="navbar-brand" href="/">Catalog App</a>
+    <div class="navbar-collapse collapse">
+    <ul class="navbar-nav ml-auto">
+    {% if user_id == None %}
+      <li class="nav-item pull-xs-right" id="login">
+      {% include "login.html" %}
+      </li>
+    {% else %}
+      <li class="nav-item pull-xs-right logout">
+      <a class="nav-link btn btn-primary" href="/logout">Log out</a>
+      </li>
+    {% endif %}
+    </ul>
+    </div>
+</nav>
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<div class="jumbotron div-main">
+  <h3>Categories</h3><hr>
+  <ul class="category">
+    {% for i in catlist %}
+    <li>
+    <a class="title" href="/catalog/{{ i.id }}">{{ i.name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div></div>
+<div class="col-md-8">
+<div class="jumbotron div-main">
+{% block content %}
+{% endblock %}
+</div></div>
+</div></div>
+</body>
+</html>

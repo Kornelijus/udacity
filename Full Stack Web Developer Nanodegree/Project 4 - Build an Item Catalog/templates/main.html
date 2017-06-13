@@ -1,0 +1,33 @@
+{% extends "nav.html" %}
+{% block content %}
+
+<h3>
+{% if cat is defined %}
+Category items ({{ cat.name }})
+{% else %}
+Latest items
+{% endif %}
+{% if user_id != None and cat is defined %}
+<a class="btn btn-primary" href="/catalog/{{ cat.id }}/add/">New</a>
+{% endif %}
+</h3>
+<hr>
+<ul class="item">
+  {% for i in items %}
+  <li>
+  {% if cat is defined %}
+  <a class="title" href="/catalog/{{ cat.id }}/{{ i.id }}/">{{ i.name }}</a>
+  {% if user_id == i.user_id %}
+  <sup>
+    <a href="/catalog/{{ cat.id }}/{{ i.id }}/edit/">Edit</a>
+    <a href="/catalog/{{ cat.id }}/{{ i.id }}/delete/">Delete</a>
+  </sup>
+  {% endif %}
+  {% else %}
+  <a class="title" href="/catalog/{{ i.href }}/">{{ i.name }}</a>
+  {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
