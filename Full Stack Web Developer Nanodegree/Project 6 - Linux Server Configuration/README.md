@@ -3,6 +3,7 @@ I. The IP address and SSH port so your server can be accessed by the reviewer.
 ---
 
 52.29.248.128 on port 2200
+
 ```
 ssh grader@52.29.248.128 -p 2200 -i key
 ```
@@ -136,6 +137,13 @@ At this point, it's very easy to mess something up, so it's a good idea to make 
 ![Image of the Lightsail snapshot progress](https://image.prntscr.com/image/ruC8MYQjRa6TVsZBOR6slQ.png)
 
 It'll take forever for it to create the snapshot, but still better than doing everything all over again if you mess something up.
+
+```
+sudo apt-get install apache2
+sudo apt-get install libapache2-mod-wsgi-py3
+sudo apt-get install python3-pip
+pip3 install flask requests oauth2client sqlalchemy
+```
 
 IV. A list of any third-party resources you made use of to complete this project.
 ---
