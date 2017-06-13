@@ -16,7 +16,7 @@ A Flask project that users can connect to, log in with Google OAuth and add, edi
 - `cd` into `fullstack-nanodegree-vm/vagrant/`
 - `vagrant up`
 - `vagrant ssh`
-- `cd vagrant/catalog/`
+- `cd /vagrant/catalog/`
 
 ## How to run
 - `python3 app.py`
