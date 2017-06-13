@@ -135,6 +135,8 @@ At this point, it's very easy to mess something up, so it's a good idea to make 
 
 ![Image of the Lightsail snapshot progress](https://image.prntscr.com/image/ruC8MYQjRa6TVsZBOR6slQ.png)
 
+It'll take forever for it to create the snapshot, but still better than doing everything all over again if you mess something up.
+
 IV. A list of any third-party resources you made use of to complete this project.
 ---
 
