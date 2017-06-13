@@ -1,37 +1,46 @@
 
-i. The IP address and SSH port so your server can be accessed by the reviewer.
+I. The IP address and SSH port so your server can be accessed by the reviewer.
 ---
 
 52.29.248.128 on port 2200
+```
+ssh grader@52.29.248.128 -p 2200 -i key
+```
 
-ii. The complete URL to your hosted web application.
+II. The complete URL to your hosted web application.
 ---
 
 http://52.29.248.128/
 
-iii. A summary of software you installed and configuration changes made.
+III. A summary of software you installed and configuration changes made.
 ---
 
 #### Update all currently installed packages.
 
-```sh
+```
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
 #### Change the SSH port from 22 to 2200. Make sure to configure the Lightsail firewall to allow it.
 
-First, make sure the Lightsail firewall isn't blocking TCP port 2200.
+Make sure the Lightsail firewall isn't blocking TCP port 2200.
 
-[image]: https://image.prntscr.com/image/oV2aVMenTbGY6MCc5EaYEg.png "image"
+![Image of the Lightsail firewall](https://image.prntscr.com/image/oV2aVMenTbGY6MCc5EaYEg.png)
 
-`sudo nano /etc/ssh/sshd_config`
-- Change `Port 22` to `Port 2200`
-- Save changes
+```
+sudo nano /etc/ssh/sshd_config
+```
+```
+Port 2200
+```
+```
+sudo service ssh restart
+```
 
 #### Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
 
-```sh
+```
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow 2200/tcp
@@ -40,9 +49,7 @@ sudo ufw allow ntp
 sudo ufw enable
 ```
 
-UFW should be active now:
-
-```sh
+```
 sudo ufw status
 
 Status: active
@@ -59,15 +66,47 @@ To                         Action      From
 
 #### Create a new user account named grader.
 
-```sh
+```
 sudo adduser grader
 ```
 
 #### Give grader the permission to sudo.
 
+```
+sudo nano /etc/sudoers.d/grader
+```
+```
+# User rules for grader
+grader ALL=(ALL) NOPASSWD:ALL
+```
 
+#### Create an SSH key pair for grader using the ssh-keygen tool.
 
-iv. A list of any third-party resources you made use of to complete this project.
+You're supposed to generate the keys on a local machine, not Lightsail.
+
+```
+ssh-keygen
+cat key_path.pub
+```
+```
+ssh-rsa AAAAB7Nza...
+```
+
+Log in into the server as `grader` and make sure you're in `/home/grader/`
+
+```
+mkdir .ssh
+sudo nano .ssh/authorized_keys
+```
+```
+ssh-rsa AAAAB7Nza...
+```
+```
+chmod 700 .ssh
+sudo chmod 644 .ssh/authorized_keys
+```
+
+IV. A list of any third-party resources you made use of to complete this project.
 ---
 
 http://songhuiming.github.io/pages/2016/10/30/set-up-flask-web-host-on-digitalocean-vps/
