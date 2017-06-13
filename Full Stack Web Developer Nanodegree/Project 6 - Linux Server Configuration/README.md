@@ -119,6 +119,16 @@ PasswordAuthentication no
 ...
 ```
 
+#### Configure the local timezone to UTC.
+
+```
+sudo dpkg-reconfigure tzdata
+```
+```
+>> None of the above
+>> UTC
+```
+
 IV. A list of any third-party resources you made use of to complete this project.
 ---
 
