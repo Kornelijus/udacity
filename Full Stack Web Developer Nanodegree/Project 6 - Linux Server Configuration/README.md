@@ -129,6 +129,12 @@ sudo dpkg-reconfigure tzdata
 >> UTC
 ```
 
+#### Install and configure Apache to serve a Python mod_wsgi application.
+
+At this point, it's very easy to mess something up, so it's a good idea to make a screenshot of your Lightsail instance.
+
+![Image of the Lightsail snapshot progress](https://image.prntscr.com/image/ruC8MYQjRa6TVsZBOR6slQ.png)
+
 IV. A list of any third-party resources you made use of to complete this project.
 ---
 
