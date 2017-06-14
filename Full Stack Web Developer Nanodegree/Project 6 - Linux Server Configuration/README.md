@@ -181,8 +181,38 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 ```
 sudo apache2ctl restart
 ```
+
+At this point, the only way to test if everything is alright is to check the logs. The server will still return a 500 because the database is not set up and the only error left should be:
+
+```
+FATAL:  password authentication failed for user "catalog"
+```
+
+If that's the case, time to set up the postgresql database.
+
+#### ~~Install~~ and configure PostgreSQL:
+
+Well, the install part is already done.
+
+```
+sudo su postgres
+psql
+create user catalog_user with password '123456';
+create database catalog with owner catalog_user;
+```
+```
+cd var/www/catalog/
+python3 example_catalog.py
+```
+```
+sudo apache2ctl restart
+```
+
 IV. A list of any third-party resources you made use of to complete this project.
 ---
 
 http://songhuiming.github.io/pages/2016/10/30/set-up-flask-web-host-on-digitalocean-vps/
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps/
+http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/
+https://medium.com/@iktw/postgresql-create-user-create-database-grant-privileges-access-aabb2507c0aa
+https://stackoverflow.com/questions/28619686/what-is-the-h-flag-for-pip
