@@ -146,7 +146,7 @@ sudo apt-get install libapache2-mod-wsgi-py3
 sudo apt-get install python3-pip
 sudo apt-get install postgresql
 sudo apt-get install git
-pip3 install flask requests oauth2client sqlalchemy psycopg2
+sudo -H pip3 install flask requests oauth2client sqlalchemy psycopg2
 ```
 
 Clone the Github repo for catalog-postgresql.
