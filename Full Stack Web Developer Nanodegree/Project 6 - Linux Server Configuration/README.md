@@ -51,6 +51,7 @@ sudo ufw default allow outgoing
 sudo ufw allow 2200/tcp
 sudo ufw allow www
 sudo ufw allow ntp
+sudo ufw deny 22/tcp
 sudo ufw enable
 ```
 
@@ -59,14 +60,17 @@ sudo ufw status
 
 Status: active
 
+
 To                         Action      From
 --                         ------      ----
 2200/tcp                   ALLOW       Anywhere
 80/tcp                     ALLOW       Anywhere
 123                        ALLOW       Anywhere
+22/tcp                     DENY        Anywhere
 2200/tcp (v6)              ALLOW       Anywhere (v6)
 80/tcp (v6)                ALLOW       Anywhere (v6)
 123 (v6)                   ALLOW       Anywhere (v6)
+22/tcp (v6)                DENY        Anywhere (v6)
 ```
 
 #### Create a new user account named grader.
