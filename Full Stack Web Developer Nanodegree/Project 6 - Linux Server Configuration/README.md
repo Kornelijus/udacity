@@ -13,6 +13,8 @@ II. The complete URL to your hosted web application.
 
 http://52.29.248.128.nip.io/
 
+Google OAuth doesn't like IPs, so I had to improvise.
+
 III. A summary of software you installed and configuration changes made.
 ---
 
