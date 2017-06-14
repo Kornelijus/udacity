@@ -178,7 +178,9 @@ sudo nano /etc/apache2/sites-available/000-default.conf
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
-
+```
+sudo apache2ctl restart
+```
 IV. A list of any third-party resources you made use of to complete this project.
 ---
 
