@@ -138,14 +138,49 @@ At this point, it's very easy to mess something up, so it's a good idea to make 
 
 It'll take forever for it to create the snapshot, but still better than doing everything all over again if you mess something up.
 
+Time to install a bunch of stuff.
+
 ```
 sudo apt-get install apache2
 sudo apt-get install libapache2-mod-wsgi-py3
 sudo apt-get install python3-pip
-pip3 install flask requests oauth2client sqlalchemy
+sudo apt-get install postgresql
+sudo apt-get install git
+pip3 install flask requests oauth2client sqlalchemy psycopg2
+```
+
+Clone the Github repo for catalog-postgresql.
+
+```
+cd var/www/
+sudo git clone https://github.com/Kornelijus/catalog-postgresql catalog
+```
+
+Set up the apache2 virtualhost.
+
+```
+sudo nano /etc/apache2/sites-available/000-default.conf
+```
+```xml
+<VirtualHost *:80>
+        ServerAdmin admin@website
+        WSGIScriptAlias / /var/www/catalog/catalog.wsgi
+        <Directory /var/www/catalog/>
+            Order allow,deny
+            Allow from all
+        </Directory>
+        Alias /static /var/www/catalog/static
+        <Directory /var/www/catalog/static/>
+            Order allow,deny
+            Allow from all
+        </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
 ```
 
 IV. A list of any third-party resources you made use of to complete this project.
 ---
 
 http://songhuiming.github.io/pages/2016/10/30/set-up-flask-web-host-on-digitalocean-vps/
+https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps/
