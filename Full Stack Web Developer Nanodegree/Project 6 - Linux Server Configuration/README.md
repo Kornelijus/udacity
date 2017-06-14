@@ -208,11 +208,32 @@ python3 example_catalog.py
 sudo apache2ctl restart
 ```
 
+The website should work fine now.
+
+#### Rubrics: You cannot log in as root remotely.
+```
+sudo nano /etc/ssh/sshd_config
+```
+```
+...
+PermitRootLogin no
+...
+```
+```
+sudo service ssh restart
+```
+
 IV. A list of any third-party resources you made use of to complete this project.
 ---
 
 http://songhuiming.github.io/pages/2016/10/30/set-up-flask-web-host-on-digitalocean-vps/
+
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps/
+
 http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/
+
 https://medium.com/@iktw/postgresql-create-user-create-database-grant-privileges-access-aabb2507c0aa
+
 https://stackoverflow.com/questions/28619686/what-is-the-h-flag-for-pip
+
+https://mediatemple.net/community/products/dv/204643810/how-do-i-disable-ssh-login-for-the-root-user
