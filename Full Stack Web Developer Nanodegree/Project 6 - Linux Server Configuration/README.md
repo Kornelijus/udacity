@@ -11,7 +11,7 @@ ssh grader@52.29.248.128 -p 2200 -i key
 II. The complete URL to your hosted web application.
 ---
 
-http://52.29.248.128/
+http://52.29.248.128.nip.io/
 
 III. A summary of software you installed and configuration changes made.
 ---
