@@ -1,0 +1,50 @@
+body {
+    color: #2d3c49;
+}
+
+header hr {
+    background: #7d97ad !important;
+    height: 3px !important;
+    margin-bottom: 35px;
+}
+
+.container.outer {
+    margin-top: 2%;
+    width: 80%;
+}
+
+.header-right {
+    text-align: right;
+}
+
+#name {
+    font-family: "Lato";
+}
+
+.label {
+    margin: 30px 0 5px 5px;
+    text-align: left;
+    color: #7d97ad;
+    font-weight: normal !important;
+}
+
+.project {
+    text-align: center;
+}
+
+.project h1 {
+    font-family: "Lato";
+    font-weight: 500 !important;
+}
+
+#avatar {
+    float: left;
+    width: 8rem;
+    border-radius: 50%;
+}
+
+#filler {
+    width: 100%;
+    height: 25rem;
+    overflow: hidden;
+}
