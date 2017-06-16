@@ -2,7 +2,7 @@ body {
     color: #2d3c49;
 }
 
-header hr {
+hr {
     background: #7d97ad !important;
     height: 3px !important;
     margin-bottom: 35px;
@@ -45,6 +45,4 @@ header hr {
 
 #filler {
     width: 100%;
-    height: 25rem;
-    overflow: hidden;
 }
