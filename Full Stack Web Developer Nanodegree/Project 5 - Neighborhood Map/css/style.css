@@ -1,0 +1,21 @@
+html,
+body,
+.row,
+.container,
+#map-canvas,
+#side-panel,
+#map {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#search-box {
+  width: 100%;
+}
+
+.list-group-item:hover {
+  cursor: default;
+  background: lightgray;
+}

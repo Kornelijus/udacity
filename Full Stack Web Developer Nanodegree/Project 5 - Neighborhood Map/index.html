@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neighborhood Map</title>
+    <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel=stylesheet href="css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10" id="map-canvas">
+                <div id="map"></div>
+            </div>
+                <div class="col-md-2" id="side-panel">
+            <div class="input-group">
+                <input class="form-control" type="text" data-bind="value: search, valueUpdate: 'afterkeydown'" id="search-box" placeholder="Search">
+            </div>
+                <ul class="list-group" data-bind="foreach: searchResults">
+                    <li class="list-group-item" data-bind="text: name, click: click"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAB70nwB9Lma1RcnrftZd55VsdVK9OdPfU&v=3&callback=initMap"></script>
+    <script src="js/app.js"></script>
+    <script src="js/knockout-3.4.2.js"></script>
+
+</body>
+</html>
