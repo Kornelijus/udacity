@@ -1,6 +1,10 @@
 # ~~Neighborhood~~ Pizza Map
 A website that displays the best pizza places near any given location using the Google Maps and Foursquare APIs.
 
+## How to run
+- Make sure you're connected to the internet
+- open `index.html`
+
 ## Sources
 https://stackoverflow.com/questions/25115942/filter-data-using-knockout-js
 

@@ -23,14 +23,15 @@
                 <ul class="list-group" data-bind="foreach: searchResults">
                     <li class="list-group-item" data-bind="text: name, click: click"></li>
                 </ul>
+                <b>Data provided by Foursquare</b>
             </div>
         </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAB70nwB9Lma1RcnrftZd55VsdVK9OdPfU&v=3&callback=initMap"></script>
-    <script src="js/app.js"></script>
     <script src="js/knockout-3.4.2.js"></script>
+    <script src="js/app.js"></script>
+    <script async defer onerror="googleMapsError();" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAB70nwB9Lma1RcnrftZd55VsdVK9OdPfU&v=3&callback=initMap"></script>
 
 </body>
 </html>

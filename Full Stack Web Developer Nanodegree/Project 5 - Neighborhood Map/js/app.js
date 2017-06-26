@@ -27,6 +27,7 @@ function Place(dict) {
 
     // when the user clicks on the marker, set the InfoWindow content to the Place description and open it.
     this.marker.addListener("click", function() {
+        this.setAnimation(google.maps.Animation.DROP);
         info.setContent(self.desc);
         info.open(map, this);
     }, self);
@@ -36,6 +37,8 @@ function Place(dict) {
         map.panTo(self.marker.getPosition());
         map.setZoom(14);
         self.marker.setAnimation(google.maps.Animation.DROP);
+        info.setContent(self.desc);
+        info.open(map, self.marker);
     }, self;
 }
 
@@ -126,4 +129,8 @@ function AppViewModel() {
 
 function initMap() {
     ko.applyBindings(new AppViewModel());
+}
+
+function googleMapsError() {
+    alert("Google Maps could not load correctly")
 }
