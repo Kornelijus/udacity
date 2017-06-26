@@ -42,12 +42,16 @@ function Place(dict) {
 function AppViewModel() {
 
     var self = this;
-
+    try {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: {lat: center[0], lng: center[1]},
+            zoom: 12
+        });
+    }
+    catch(err) {
+        alert("Could not load the Google Maps API");
+    }
     // creating the map
-    map = new google.maps.Map(document.getElementById("map"), {
-    center: {lat: center[0], lng: center[1]},
-    zoom: 12
-    });
 
     // only creating one InfoWindow because I don't want more than one of them at a time on screen.
     info = new google.maps.InfoWindow({
@@ -55,9 +59,7 @@ function AppViewModel() {
     });
 
     // creating an observable for the search box
-    this.search = ko.observable().extend({
-        pattern: /[^\/]/
-    });
+    this.search = ko.observable();
 
     // creating an empty observableArray to push Place objects into
 	this.places = ko.observableArray([]);
@@ -107,7 +109,7 @@ function AppViewModel() {
         }
         else {
             return ko.utils.arrayFilter(self.places(), function(place) {
-                if (place.name.toLowerCase().search(search.toLowerCase()) != -1) {
+                if (place.name.toLowerCase().search(search.replace(/[\/]/g,'').toLowerCase()) != -1) {
                     place.marker.setVisible(true);
                     //place.marker.setAnimation(google.maps.Animation.DROP);
                     return true;
