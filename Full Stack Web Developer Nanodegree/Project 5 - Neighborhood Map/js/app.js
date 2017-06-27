@@ -89,9 +89,8 @@ function AppViewModel() {
                     name: places[i].name,
                     lat: places[i].location.lat,
                     lng: places[i].location.lng,
-          address: places[i].location.formattedAddress.join(", "),
-          phone: places[i].contact.formattedPhone
-
+                    address: places[i].location.formattedAddress.join(", "),
+                    phone: places[i].contact.formattedPhone
                 }));
             }
         },
