@@ -65,40 +65,40 @@ function AppViewModel() {
     this.search = ko.observable();
 
     // creating an empty observableArray to push Place objects into
-	this.places = ko.observableArray([]);
+    this.places = ko.observableArray([]);
 
-	// making a call to the Foursquare API to get the location data
-	$.ajax({
-		dataType: "json",
-		type: "GET",
-		url: "https://api.foursquare.com/v2/venues/search",
-		data: {
-			client_id: foursquare_client_id,
-			client_secret: foursquare_client_secret,
-			v: "20170624",
-			ll: center[0].toString() + "," + center[1].toString(),
-			query: "pizza",
-			limit: 10
-		},
-		success: function(data) {
-			var places = data.response.venues;
+    // making a call to the Foursquare API to get the location data
+    $.ajax({
+        dataType: "json",
+        type: "GET",
+        url: "https://api.foursquare.com/v2/venues/search",
+        data: {
+            client_id: foursquare_client_id,
+            client_secret: foursquare_client_secret,
+            v: "20170624",
+            ll: center[0].toString() + "," + center[1].toString(),
+            query: "pizza",
+            limit: 10
+        },
+        success: function(data) {
+            var places = data.response.venues;
 
             // creating Place objects from the data and pushing it into the observableArray
-			for (i = 0; i < places.length; i++) {
-				self.places.push(new Place({
-					name: places[i].name,
-					lat: places[i].location.lat,
-					lng: places[i].location.lng,
+            for (i = 0; i < places.length; i++) {
+                self.places.push(new Place({
+                    name: places[i].name,
+                    lat: places[i].location.lat,
+                    lng: places[i].location.lng,
           address: places[i].location.formattedAddress.join(", "),
           phone: places[i].contact.formattedPhone
 
-				}));
-			}
-		},
-		error: function(data) {
-			alert("Could not get data from the Foursquare API");
-		}
-	});
+                }));
+            }
+        },
+        error: function(data) {
+            alert("Could not get data from the Foursquare API");
+        }
+    });
 
     // filter the places observable array
     this.searchResults = ko.computed(function() {
