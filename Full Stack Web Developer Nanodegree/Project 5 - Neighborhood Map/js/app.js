@@ -112,7 +112,7 @@ function AppViewModel() {
         }
         else {
             return ko.utils.arrayFilter(self.places(), function(place) {
-                if (place.name.toLowerCase().search(search.replace(/[\/]/g,'').toLowerCase()) != -1) {
+                if (place.name.toLowerCase().search(search.replace(/[\/]/g,"").toLowerCase()) != -1) {
                     place.marker.setVisible(true);
                     //place.marker.setAnimation(google.maps.Animation.DROP);
                     return true;
@@ -132,5 +132,5 @@ function initMap() {
 }
 
 function googleMapsError() {
-    alert("Google Maps could not load correctly")
+    alert("Google Maps could not load correctly");
 }
